@@ -6,6 +6,7 @@
     "pretest": "npx eslint . --ext .js",
     "lint:fix": "npx eslint . --ext .js --fix",
     "test": "jest",
+    "dev": "npx nodemon ./bin/www.js",
     "start": "node ./bin/www.js"
   },
   "dependencies": {
