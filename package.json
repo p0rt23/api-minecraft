@@ -1,0 +1,26 @@
+{
+  "name": "api-minecraft",
+  "version": "1.0.0",
+  "description": "Collection of minecraft related endpoints",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p0rt23/api-minecraft.git"
+  },
+  "author": "Mark Smith",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/p0rt23/api-minecraft/issues"
+  },
+  "homepage": "https://github.com/p0rt23/api-minecraft#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "swagger-ui-dist": "^3.27.0"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
