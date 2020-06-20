@@ -5,7 +5,7 @@
   "scripts": {
     "pretest": "npx eslint . --ext .js",
     "lint:fix": "npx eslint . --ext .js --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "dev": "npx nodemon -L ./bin/www.js | bunyan",
     "start": "node ./bin/www.js"
   },

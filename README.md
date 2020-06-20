@@ -1,5 +1,4 @@
 # api-minecraft
 
 ## TODO
-* dockerfile
-* jenkinsfile
+* versioned route /v1
