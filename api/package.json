@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
     "pretest": "npx eslint . --ext .js",
-    "lint:fix": "npx eslint . --ext .js --fix"
+    "lint:fix": "npx eslint . --ext .js --fix",
+    "test": "jest",
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
