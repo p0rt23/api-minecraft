@@ -1,7 +1,20 @@
-const express = require('express')
-const swaggerPath = require('swagger-ui-dist').absolutePath()
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const app = express()
-app.use(express.static(swaggerPath))
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-app.listen(3000)
+var app = express();
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+module.exports = app;
