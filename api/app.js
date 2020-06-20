@@ -1,10 +1,10 @@
+'use strict'
+
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const requestId = require('express-request-id')()
-const promBundle = require("express-prom-bundle");
-
-const docsRouter = require('./routes/docs')
+const promBundle = require('express-prom-bundle')
 
 const app = express()
 
@@ -18,9 +18,10 @@ const morganFormat = '":id" - :remote-addr - :remote-user [:date[clf]] ":method 
 app.use(morgan(morganFormat))
 morgan.token('id', (req) => { return req.id })
 
+// Prometheus: /metrics
 const metrics = promBundle({ includePath: true })
 app.use(metrics)
 
-app.use('/docs', docsRouter)
+app.use('/docs', require('./routes/docs'))
 
 module.exports = app

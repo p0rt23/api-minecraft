@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
+'use strict'
+
 /**
  * Module dependencies.
  */
 
-var app = require('../app')
-var debug = require('debug')('api-minecraft:server')
-var http = require('http')
+const app = require('../app')
+const debug = require('debug')('api-minecraft:server')
+const http = require('http')
+const log = require('../lib/logger')
 
 /**
  * Get port from environment and store in Express.
@@ -65,10 +68,10 @@ function onError (error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges')
+      log.error(bind + ' requires elevated privileges')
       process.exit(1)
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use')
+      log.error(bind + ' is already in use')
       process.exit(1)
     default:
       throw error
