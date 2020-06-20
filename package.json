@@ -21,6 +21,7 @@
     "swagger-ui-dist": "^3.27.0"
   },
   "devDependencies": {
+    "eslint": "^7.3.0",
     "jest": "^26.0.1"
   }
 }
