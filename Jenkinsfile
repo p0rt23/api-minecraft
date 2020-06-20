@@ -8,7 +8,7 @@ if (env.BRANCH_NAME == 'master') {
 }
 else {
     container_name = "${image_name}-develop" 
-    node_env       = 'testing'
+    node_env       = 'test'
     restart        = 'no'
 }
 
