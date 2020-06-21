@@ -25,11 +25,10 @@ morgan.token('id', (req) => { return req.id })
 const metrics = promBundle({ includePath: true })
 app.use(metrics)
 
-const pathPrefix = config.env === 'development' ? '' : `/${config.appName}`
 if (config.docsEnabled) {
   log.info('/docs and /specs are public')
-  app.use(`${pathPrefix}/docs`, require('./routes/docs'))
-  app.use(`${pathPrefix}/specs`, require('./routes/specs'))
+  app.use(`${config.rootPath}/docs`, require('./routes/docs'))
+  app.use(`${config.rootPath}/specs`, require('./routes/specs'))
 }
 
 module.exports = app

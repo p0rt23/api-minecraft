@@ -10,14 +10,17 @@ const common = {
 const config = {
   development: {
     env: 'development',
+    rootPath: '',
     docsEnabled: true
   },
   test: {
     env: 'test',
+    rootPath: `/${common.appName}`,
     docsEnabled: true
   },
   production: {
     env: 'production',
+    rootPath: `/${common.appName}`,
     docsEnabled: false
   }
 }

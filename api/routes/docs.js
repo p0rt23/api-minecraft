@@ -2,12 +2,13 @@
 
 const express = require('express')
 const swaggerPath = require('swagger-ui-dist').getAbsoluteFSPath()
+const config = require('../config')
 
 const router = express.Router()
 
 router.get('/', (req, res, next) => {
   if (req.url === '/') {
-    return res.redirect('/docs/?url=/specs/world-downloads.yml')
+    return res.redirect(`${config.rootPath}/docs/?url=/specs/world-downloads.yml`)
   }
   next()
 })
