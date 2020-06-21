@@ -4,7 +4,7 @@ require('dotenv').config()
 const packageJson = require('./package.json')
 
 const common = {
-  app_name: packageJson.name
+  appName: packageJson.name
 }
 
 const config = {
