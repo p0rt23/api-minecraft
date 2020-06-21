@@ -8,6 +8,7 @@ const promBundle = require('express-prom-bundle')
 const config = require('./config')
 const log = require('./lib/logger')
 
+log.info(`Node Environment: ${config.env}`)
 const app = express()
 
 app.use(express.json())

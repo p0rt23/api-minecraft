@@ -9,12 +9,15 @@ const common = {
 
 const config = {
   development: {
+    env: 'development',
     docsEnabled: true
   },
   test: {
+    env: 'test',
     docsEnabled: true
   },
   production: {
+    env: 'production',
     docsEnabled: false
   }
 }
