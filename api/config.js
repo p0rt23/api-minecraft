@@ -8,9 +8,15 @@ const common = {
 }
 
 const config = {
-  development: {},
-  test: {},
-  production: {}
+  development: {
+    docsEnabled: true
+  },
+  test: {
+    docsEnabled: true
+  },
+  production: {
+    docsEnabled: false
+  }
 }
-
-module.exports = { ...common, ...config[process.env.NODE_ENV || 'development'] }
+const env = process.env.NODE_ENV || 'development'
+module.exports = { ...common, ...config[env] }

@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const requestId = require('express-request-id')()
 const promBundle = require('express-prom-bundle')
+const config = require('./config')
+const log = require('./lib/logger')
 
 const app = express()
 
@@ -22,6 +24,10 @@ morgan.token('id', (req) => { return req.id })
 const metrics = promBundle({ includePath: true })
 app.use(metrics)
 
-app.use('/docs', require('./routes/docs'))
+if (config.docsEnabled) {
+  log.info('/docs and /specs are public')
+  app.use('/docs', require('./routes/docs'))
+  app.use('/specs', require('./routes/specs'))
+}
 
 module.exports = app
