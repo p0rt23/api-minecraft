@@ -1,5 +1,10 @@
-openapi: '3.0.2'
+openapi: '3.0.3'
 info:
   title: world-downloads
-  version: '1.0'
+  version: '1.0.0'
+servers:
+  - url: http://api-minecraft.nearzero.io/
+    description: Production server
+  - url: http://api-minecraft.nearzero.io/
+    description: Beta server
 paths: {}
