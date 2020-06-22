@@ -25,10 +25,16 @@ morgan.token('id', (req) => { return req.id })
 const metrics = promBundle({ includePath: true })
 app.use(metrics)
 
+// Docs and Specs
 if (config.docsEnabled) {
   log.info('/docs and /specs are public')
   app.use(`${config.rootPath}/docs`, require('./routes/docs'))
   app.use(`${config.rootPath}/specs`, require('./routes/specs'))
 }
+
+const v1 = express.Router()
+v1.use('/world-downloads', require('./routes/world-downloads-v1'))
+
+app.use(`${config.rootPath}/v1`, v1)
 
 module.exports = app

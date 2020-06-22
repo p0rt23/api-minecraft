@@ -6,8 +6,8 @@
     "pretest": "npx eslint . --ext .js",
     "lint:fix": "npx eslint . --ext .js --fix",
     "test": "jest --passWithNoTests",
-    "dev": "npx nodemon -L ./bin/www.js | bunyan",
-    "start": "node ./bin/www.js"
+    "dev": "DEBUG=api-minecraft:* npx nodemon -L ./bin/www | bunyan",
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bunyan": "^1.8.12",

@@ -1,0 +1,18 @@
+openapi: '3.0.3'
+info:
+  title: api-minecraft
+  version: '1.0.0'
+servers:
+  - url: http://api.nearzero.io/api-minecraft/v1
+    description: Production
+  - url: http://api-develop.nearzero.io/api-minecraft/v1
+    description: Test
+  - url: http://192.168.1.5:3000/v1
+    description: Development
+paths:
+  /world-downloads:
+    get:
+      description:
+      responses:
+        '200':
+          description:

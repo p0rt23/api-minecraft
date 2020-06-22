@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get('/', (req, res, next) => {
   if (req.url === '/') {
-    return res.redirect(`${config.rootPath}/docs/?url=${config.rootPath}/specs/world-downloads.yml`)
+    return res.redirect(`${config.rootPath}/docs/?url=${config.rootPath}/specs/api-minecraft.yml`)
   }
   next()
 })
