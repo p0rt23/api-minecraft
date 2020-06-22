@@ -13,7 +13,7 @@ else {
     restart        = 'no'
     domain         = 'api-develop.nearzero.io'
 }
-traefik_rule = domain.replaceAll('.', '-')
+traefik_rule = domain.replace('.', '-')
 
 pipeline {
     agent any
