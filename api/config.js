@@ -4,13 +4,25 @@ require('dotenv').config()
 const packageJson = require('./package.json')
 
 const common = {
-  app_name: packageJson.name
+  appName: packageJson.name
 }
 
 const config = {
-  development: {},
-  test: {},
-  production: {}
+  development: {
+    env: 'development',
+    rootPath: '',
+    docsEnabled: true
+  },
+  test: {
+    env: 'test',
+    rootPath: `/${common.appName}`,
+    docsEnabled: true
+  },
+  production: {
+    env: 'production',
+    rootPath: `/${common.appName}`,
+    docsEnabled: false
+  }
 }
-
-module.exports = { ...common, ...config[process.env.NODE_ENV || 'development'] }
+const env = process.env.NODE_ENV || 'development'
+module.exports = { ...common, ...config[env] }

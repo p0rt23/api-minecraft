@@ -1,16 +1,19 @@
 def image_name = 'api-minecraft'
-def container_name, version, image_tag, node_env, restart
+def container_name, version, image_tag, node_env, restart, traefik_rule, domain
 
 if (env.BRANCH_NAME == 'master') {
     container_name = image_name 
     node_env       = 'production'
     restart        = 'always'
+    domain         = 'api.nearzero.io'
 }
 else {
     container_name = "${image_name}-develop" 
     node_env       = 'test'
     restart        = 'no'
+    domain         = 'api-develop.nearzero.io'
 }
+traefik_rule = domain.replaceAll('.', '-')
 
 pipeline {
     agent any
@@ -56,10 +59,10 @@ pipeline {
                     docker run -d \
                         --restart=${restart} \
                         --name=${container_name} \
-                        --network="traefik" \
+                        --network=traefik \
                         --label="traefik.enable=true" \
-                        --label="traefik.basic.frontend.rule=Host:${container_name}.nearzero.io" \
-                        --env NODE_ENV=${node_env} \
+                        --label='traefik.http.routers.${traefik_rule}.rule=Host(`${domain}`) && PathPrefix(`/${image_name}/`)' \
+                        --env="NODE_ENV=${node_env}" \
                         p0rt23/${image_name}:${image_tag}
                 """
             }
