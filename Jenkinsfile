@@ -6,14 +6,15 @@ if (env.BRANCH_NAME == 'master') {
     node_env       = 'production'
     restart        = 'always'
     domain         = 'api.nearzero.io'
+    traefik_rule   = 'api-minecraft'
 }
 else {
     container_name = "${image_name}-develop" 
     node_env       = 'test'
     restart        = 'no'
     domain         = 'api-develop.nearzero.io'
+    traefik_rule   = 'api-minecraft-develop'
 }
-traefik_rule = domain.replace('.', '-')
 
 pipeline {
     agent any
