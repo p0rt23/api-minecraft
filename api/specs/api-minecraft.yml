@@ -12,7 +12,7 @@ servers:
 paths:
   /world-downloads:
     get:
-      description:
+      description: Empty description.
       responses:
         '200':
-          description:
+          description: Empty description.
