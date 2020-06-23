@@ -12,7 +12,13 @@ servers:
 paths:
   /world-downloads:
     get:
-      description: Empty description.
+      description: Get a list of world download files.
       responses:
         '200':
-          description: Empty description.
+          description: Returns an array of up to 10 world download filenames.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string

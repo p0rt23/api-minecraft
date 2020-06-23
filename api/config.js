@@ -11,17 +11,20 @@ const config = {
   development: {
     env: 'development',
     rootPath: '',
-    docsEnabled: true
+    docsEnabled: true,
+    worldDownloadsPath: 'tmp'
   },
   test: {
     env: 'test',
     rootPath: `/${common.appName}`,
-    docsEnabled: true
+    docsEnabled: true,
+    worldDownloadsPath: '/minecraft-backups'
   },
   production: {
     env: 'production',
     rootPath: `/${common.appName}`,
-    docsEnabled: false
+    docsEnabled: false,
+    worldDownloadsPath: '/minecraft-backups'
   }
 }
 const env = process.env.NODE_ENV || 'development'

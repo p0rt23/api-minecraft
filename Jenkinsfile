@@ -58,6 +58,7 @@ pipeline {
                 }
                 sh """
                     docker run -d \
+                        -v /home/docker/backups/minecraft:/minecraft-backups:ro \
                         --restart=${restart} \
                         --name=${container_name} \
                         --network=traefik \
