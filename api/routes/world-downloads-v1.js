@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
         files
           .sort((b, a) => a.modifiedMs - b.modifiedMs)
           .map(o => o.name)
-          .slice(0, 9)
+          .slice(0, 10)
       )
     }).catch(next)
   }).catch(next)
