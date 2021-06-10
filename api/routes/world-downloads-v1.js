@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
     })
   }).then(fileStats => {
     Promise.all(fileStats).then(files => {
-      // Sort by modifiedMs desc
       res.json(
         files
           .sort((b, a) => a.modifiedMs - b.modifiedMs)
